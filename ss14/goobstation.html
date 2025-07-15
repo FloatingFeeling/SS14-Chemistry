@@ -37,7 +37,7 @@
     <hr />
     <h2 id="chemrush">The Chemrush :tm:</h2>
     <p>
-        <button id="copyButton">Salicylic | Brute EA 30/5u | 25u OD</button><br>
+        <button class="copy-button">Salicylic | Brute EA 30/5u | 25u OD</button><br>
         360 Salicylic Acid<br>
          - 10 Carbon/Oxygen/Sugar/Hydrogen/Sulfur, 20 Oxygen | Beaker 1<br>
          - 30 Sugar | Beaker 1 -> ChemMaster<br>
@@ -49,7 +49,7 @@
          - 25 Tranexamic Acid/Fluorosulfuric Acid/Sodium Hydroxide/Bicaridine | Beaker 1, Heat -> Jug 1<br>
          - Repeat until expended<br>
         <br>
-        <button id="copyButton">Oxandrolone | Burn EA 25/5u | 25u OD</button><br>
+        <button class="copy-button">Oxandrolone | Burn EA 25/5u | 25u OD</button><br>
         240 Oxandrolone<br>
          - 10 Chlorine/Sodium | Beaker 1, Heat, Discard 5u<br>
          - 15 Ammonia, Carbon, Oxygen | Beaker 1 -> ChemMaster<br>
@@ -59,7 +59,7 @@
          - 30 Copper, 1 Plasma (Catalyst) | Beaker 1 -> ChemMaster<br>
          - 25 Sodium Carbonate/Dermaline/Phenol/Leporazine | Beaker 1 -> Jug 1<br>
         <br>
-        <button id="copyButton">Artiplates | Blood level, Bloodloss 50/5u | 11u OD</button><br>
+        <button class="copy-button">Artiplates | Blood level, Bloodloss 50/5u | 11u OD</button><br>
         240 Artiplates<br>
          - 10 Chlorine/Sodium | Beaker 1, Heat<br>
          - 80 Water | Beaker 1 -> ChemMaster<br>
@@ -69,7 +69,7 @@
          - 5 Iron/Copper, 10 Tranexamic Acid, 15 Saline | Beaker 1, Heat -> Jug 1<br>
          - Repeat until expended<br>
         <br>
-        <button id="copyButton">Pentenic | Toxin EA 40/5u | NO OD</button><br>
+        <button class="copy-button">Pentenic | Toxin EA 40/5u | NO OD</button><br>
         240 Pentenic Acid<br>
          - 10 Hydrogen/Sulfur, 20 Oxygen | Beaker 1<br>
          - 30 Plasma/Potassium | Beaker 1 -> ChemMaster<br>
@@ -80,12 +80,12 @@
          - 25 Polytrinic Acid/Potassium Iodide/Haloperidol/Cyanide | Beaker 1 -> Jug 1<br>
          - Repeat until expended<br>
         <br>
-        <button id="copyButton">Dex+ | Airloss 65/5u | 25u OD</button><br>
+        <button class="copy-button">Dex+ | Airloss 65/5u | 25u OD</button><br>
         180 Dexalin Plus<br>
          - 40 Oxygen, 1 Plasma (Catalyst) | Beaker 1 -> Jug 1<br>
          - 60 Carbon/Iron | Beaker 1 -> Jug 1<br>
         <br>
-        <button id="copyButton">Atropine | Stabiliser n/Rad/Cellular | 35u OD</button><br> 
+        <button class="copy-button">Atropine | Stabiliser n/Rad/Cellular | 35u OD</button><br> 
         200 Atropine<br>
          - 25 Oil/Welding Fuel/Oxygen | Beaker 1 -> Jug 1<br>
          - 25 Ammonia/Ethanol | Beaker 1 -> Jug 1<br>
@@ -93,20 +93,24 @@
          - 15 Oxygen, 30 Carbon, 45 Hydrogen | Beaker 1, Heat -> Jug 1<br>
         <br>
     </p>
-        <script>
-          const button = document.getElementById('copyButton');
+<script>
+  // Select all buttons with class 'copy-button'
+  const buttons = document.querySelectorAll('.copy-button');
 
-          button.addEventListener('click', () => {
-            const textToCopy = button.innerText;
-        
-            navigator.clipboard.writeText(textToCopy)
-              .then(() => {
-                console.log('Text copied to clipboard:', textToCopy);
-              })
-              .catch(err => {
-                console.error('Failed to copy text:', err);
-              });
-          });
-        </script>
+  // Loop over each and add event listener
+  buttons.forEach(button => {
+    button.addEventListener('click', () => {
+      const textToCopy = button.innerText;
+
+      navigator.clipboard.writeText(textToCopy)
+        .then(() => {
+          console.log('Copied:', textToCopy);
+        })
+        .catch(err => {
+          console.error('Copy failed:', err);
+        });
+    });
+  });
+</script>
   </body>
 </html>
