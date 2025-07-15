@@ -93,24 +93,22 @@
          - 15 Oxygen, 30 Carbon, 45 Hydrogen | Beaker 1, Heat -> Jug 1<br>
         <br>
     </p>
-<script>
-  // Select all buttons with class 'copy-button'
-  const buttons = document.querySelectorAll('.copy-button');
-
-  // Loop over each and add event listener
-  buttons.forEach(button => {
-    button.addEventListener('click', () => {
-      const textToCopy = button.innerText;
-
-      navigator.clipboard.writeText(textToCopy)
-        .then(() => {
-          console.log('Copied:', textToCopy);
-        })
-        .catch(err => {
-          console.error('Copy failed:', err);
+    <script>
+      const buttons = document.querySelectorAll('.copy-button');
+        
+      buttons.forEach(button => {
+        button.addEventListener('click', () => {
+          const textToCopy = button.innerText;
+    
+          navigator.clipboard.writeText(textToCopy)
+            .then(() => {
+              console.log('Copied:', textToCopy);
+            })
+            .catch(err => {
+              console.error('Copy failed:', err);
+            });
         });
-    });
-  });
-</script>
+      });
+    </script>
   </body>
 </html>
